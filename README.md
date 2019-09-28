@@ -23,3 +23,6 @@ Analyzing sentiment from a collection of journal (or any other) entries.
   - Polarity score between -1 and +1 that tells how negative or positive the journal's content is.
   - Subjectivity score between 0 and +1 that tells how subjective (closer to 0) or objective (closer to 1) the journal's content is.
   - WordCloud of the most frequently used words in the journal.
+
+## Note
+You can check out the `notebooks` folder for better clarity.
