@@ -18,18 +18,18 @@ def populate_stop_words():
     return stop_words
 
 
-def raw_to_dataframe(filename):
+def raw_to_dataframe(filepath):
     """
     Definition:
         - Reads the customized file with specific delimiter ("---\n").
         - Converts into Pandas DataFrame format.
     
     Parameters:
-        - filename of raw text file (Eg: 'file_name.txt')
+        - filepath of raw text file
 
     Returns: Pandas DataFrame.
     """
-    filepath = "../data/{}".format(filename)
+    
     with open(filepath, mode='r') as f:
         content = f.read()
     
@@ -173,11 +173,12 @@ def create_wordcloud(df_with_sentiment):
 if __name__ == '__main__':
     # Make sure the file with the entries is in the 'data' folder.
     filename = "test_journal.txt"
-    
+    filepath = "../data/{}".format(filename)
+
     # Make sure the 'results' folder isn't deleted (if it is, create one).
     results_path = "../results"
 
-    df = raw_to_dataframe(filename)
+    df = raw_to_dataframe(filepath)
     df_with_sentiment = calc_sentiment(df)
     create_plots(df_with_sentiment)
     create_wordcloud(df_with_sentiment)
