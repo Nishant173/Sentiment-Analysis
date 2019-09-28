@@ -1,6 +1,11 @@
 # Sentiment-Analysis
 Analyzing sentiment from a collection of journal (or any other) entries.
 
+## Synopsis
+- Reads journal entries from the `data` folder and analyzes sentiment via the code in the `script` folder.
+- Sentiment includes the polarity and subjectivity in the content of the journal, as well as a WordCloud diagram.
+- Generates results into the `results` folder.
+
 ## Structure of the journal
 - The journal entries are made in the `data` folder, in the file named `test_journal.txt`
 - The delimiter between entries is "---\n" i,e; 3 hyphens followed by a newline.
