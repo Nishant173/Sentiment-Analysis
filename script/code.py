@@ -118,26 +118,30 @@ def create_plots(df_with_sentiment):
     step_size = 0.25
     
     plt.figure(figsize = (25, 14))
-    plt.plot(dates, np.zeros(len(df_with_sentiment['polarity'])), linestyle='--', linewidth=4, color ='#696969', label='Zero')
-    plt.plot(dates, df_with_sentiment['polarity'], linestyle='-.', linewidth=4, label='Polarity Slope')
+    plt.style.use('ggplot') # ['fivethirtyeight', 'seaborn-dark', 'seaborn-ticks', 'ggplot']
+    plt.plot(dates, np.zeros(len(df_with_sentiment['polarity'])), linestyle='--', linewidth=4, color ='#696969', label='Neutral')
+    plt.plot(dates, df_with_sentiment['polarity'], linestyle='-.', linewidth=4, color='blue', label='Polarity slope')
     plt.scatter(dates, df_with_sentiment['polarity'], marker='*', s=200, color='red', label='Data points')
     plt.title("Polarity scores over time (B/w -1 and +1)", fontsize=40)
     plt.xlabel("Date", fontsize=30)
     plt.ylabel("Polarity score", fontsize=30)
     plt.xticks(fontsize=20, rotation=50)
     plt.yticks(np.arange(-1, 1 + step_size, step=step_size), fontsize=20)
+    plt.tight_layout()
     plt.grid()
     plt.legend(loc='best', fontsize=24)
     plt.savefig("{}/Polarity scores over time.png".format(results_path))
     
     plt.figure(figsize = (25, 14))
-    plt.plot(dates, df_with_sentiment['subjectivity'], linestyle='-.', linewidth=4, label='Subjectivity Slope')
+    plt.style.use('ggplot') # ['fivethirtyeight', 'seaborn-dark', 'seaborn-ticks', 'ggplot']
+    plt.plot(dates, df_with_sentiment['subjectivity'], linestyle='-.', linewidth=4, color='blue', label='Subjectivity slope')
     plt.scatter(dates, df_with_sentiment['subjectivity'], marker='*', s=200, color='red', label='Data points')
     plt.title("Subjectivity scores over time (B/w 0 and +1)", fontsize=40)
     plt.xlabel("Date", fontsize=30)
     plt.ylabel("Subjectivity score", fontsize=30)
     plt.xticks(fontsize=20, rotation=50)
     plt.yticks(np.arange(0, 1 + step_size, step=step_size), fontsize=20)
+    plt.tight_layout()
     plt.grid()
     plt.legend(loc='best', fontsize=24)
     plt.savefig("{}/Subjectivity scores over time.png".format(results_path))
